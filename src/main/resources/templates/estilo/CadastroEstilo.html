@@ -17,13 +17,17 @@
 	
 	<div class="container-fluid">
 	
-		<form method="POST" th:object="${cidade}" class="form-vertical js-form-loading">
+		<th:block th:include="layout/fragments/MensagemSucesso"></th:block>
+	
+		<form method="POST" th:object="${estilo}">
+			
+			<th:block th:include="layout/fragments/MensagensErro"></th:block>
 			
 			<div class="row">
 				
-				<div class="col-sm-7 form-group">
+				<div class="col-sm-7 form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error">
 					<label for="estilo">Estilo</label>
-					<input id="estilo" type="text" class="form-control"/>
+					<input id="nome" type="text" class="form-control" autofocus="autofocus" th:field="*{nome}"/>
 				</div>
 				
 			</div>
